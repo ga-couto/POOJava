@@ -1,3 +1,4 @@
+import br.com.dominio.Conteudo;
 import br.com.dominio.Curso;
 import br.com.dominio.Mentoria;
 
@@ -18,6 +19,8 @@ public class Main {
         mentoriaBoa.setDescricao("Melhor mentoria de Java");
         mentoriaBoa.setData(LocalDate.now());
 
+
+        Conteudo cursoConteudo = new Curso();
 
     }
 }

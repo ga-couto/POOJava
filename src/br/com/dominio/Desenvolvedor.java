@@ -7,13 +7,18 @@ import java.util.Set;
 
 public class Desenvolvedor {
 
+    Bootcamp bootcamp;
     private String nome;
+    private Set<Desenvolvedor> dev = new LinkedHashSet<>();
     private Set<Conteudo> conteudosInscrito = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
-    public void incricaoBootcamp(Bootcamp bootcamp){
+    public void incricaoBootcamp(){
         this.conteudosInscrito.addAll(bootcamp.getConteudosBootcamp());
         bootcamp.getDevs().add(this);
+    }
+    public void cadastrarDev(){
+        this.dev.addAll(getDev());
     }
 
     public void progredir(){
@@ -57,16 +62,32 @@ public class Desenvolvedor {
         this.conteudosConcluidos = conteudosConcluidos;
     }
 
+    public Bootcamp getBootcamp() {
+        return bootcamp;
+    }
+
+    public void setBootcamp(Bootcamp bootcamp) {
+        this.bootcamp = bootcamp;
+    }
+
+    public Set<Desenvolvedor> getDev() {
+        return dev;
+    }
+
+    public void setDev(Set<Desenvolvedor> dev) {
+        this.dev = dev;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Desenvolvedor that = (Desenvolvedor) o;
-        return Objects.equals(nome, that.nome) && Objects.equals(conteudosInscrito, that.conteudosInscrito) && Objects.equals(conteudosConcluidos, that.conteudosConcluidos);
+        return Objects.equals(bootcamp, that.bootcamp) && Objects.equals(nome, that.nome) && Objects.equals(dev, that.dev) && Objects.equals(conteudosInscrito, that.conteudosInscrito) && Objects.equals(conteudosConcluidos, that.conteudosConcluidos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, conteudosInscrito, conteudosConcluidos);
+        return Objects.hash(bootcamp, nome, dev, conteudosInscrito, conteudosConcluidos);
     }
 }

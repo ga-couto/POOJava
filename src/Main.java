@@ -1,53 +1,30 @@
 import br.com.dominio.*;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        Curso cursoJava = new Curso();
-        cursoJava.setTitulo("Curso de Java");
-        cursoJava.setDescricao("O melhor curso do mundo");
-        cursoJava.setCargaHoraria(80);
 
-        System.out.println(cursoJava);
+        Scanner scan = new Scanner(System.in);//Aqui eu criei um Objeto e não preciso criar na classe "Menu". Só preciso passa-lo p o construtor da classe Menu.
+        // O Objeto (Classe Menu) Depende dessa variável "scan" criada. No momento que vou contruir o menu através do "Menu menu = new Menu(scan)" preciso passar o scan para informar que tem que utilizar o scan da classe "Menu".
+        Menu menu = new Menu(scan);// Aqui passa o "scan" como parametro do construtor da classe "Menu".
+        //		Registro registro = null;
+        //		Conta conta = null;
 
-        Mentoria mentoriaBoa = new Mentoria();
-        mentoriaBoa.setTitulo("Mentoria top");
-        mentoriaBoa.setDescricao("Melhor mentoria de Java");
-        mentoriaBoa.setData(LocalDate.now());
+        int opcao;
 
-        Conteudo cursoConteudo = new Curso();
+        while(true) {
+            System.out.println(menu.exibeMenu());
+            opcao = scan.nextInt();
+            if(opcao == 0) {
+                break;
+            }
+            menu.selecionaOpcaoMenu(opcao);
+        }
+
 
         System.out.println("----------------------------------------------------");
-
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Java");
-        bootcamp.setDescricao("Um bootcamp cheio de desafios para você!");
-        bootcamp.getConteudosBootcamp().add(cursoJava);
-        bootcamp.getConteudosBootcamp().add(mentoriaBoa);
-
-        Desenvolvedor devGabriel = new Desenvolvedor();
-        devGabriel.setNome("Gabriel");
-        devGabriel.incricaoBootcamp(bootcamp);
-        System.out.println("Conteudos inscrito de Gabriel "+ devGabriel.getConteudosInscrito());
-        devGabriel.progredir();
-        devGabriel.progredir();
-        System.out.println("Conteudos inscrito de Gabriel "+ devGabriel.getConteudosInscrito());
-        System.out.println("Conteudos concluídos de Gabriel "+ devGabriel.getConteudosInscrito());
-        System.out.println("XP: "+ devGabriel.calcularTotalXP());
-
-
-        System.out.println("-----------------------------------------------------------");
-        Desenvolvedor devLaiana = new Desenvolvedor();
-        devLaiana.setNome("Laiana");
-        devLaiana.incricaoBootcamp(bootcamp);
-        System.out.println("Conteudos inscrito de Laiana "+ devLaiana.getConteudosInscrito());
-        devLaiana.progredir();
-        devLaiana.progredir();
-        System.out.println("Conteudos inscrito de Laiana "+ devLaiana.getConteudosInscrito());
-        System.out.println("Conteudos concluídos de Laiana "+ devLaiana.getConteudosInscrito());
-        System.out.println("XP: "+ devLaiana.calcularTotalXP());
-
 
 
     }

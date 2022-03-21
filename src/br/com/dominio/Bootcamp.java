@@ -13,55 +13,64 @@ public class Bootcamp {
     private LocalDate dataInicial =    LocalDate.now();
     private LocalDate dataFinal = dataInicial.plusDays(45);
     private Set<Desenvolvedor> devs = new HashSet<>();
+    private Set<Curso> cursos = new HashSet<>();
+    private Set<Mentoria> mentorias = new HashSet<>();
     private Set<Conteudo> conteudosBootcamp = new LinkedHashSet<>();
 
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+
     public String getDescricao() {
         return descricao;
     }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
+
     public LocalDate getDataInicial() {
         return dataInicial;
     }
-
     public void setDataInicial(LocalDate dataInicial) {
         this.dataInicial = dataInicial;
     }
 
+
     public LocalDate getDataFinal() {
         return dataFinal;
     }
-
     public void setDataFinal(LocalDate dataFinal) {
         this.dataFinal = dataFinal;
     }
 
+
     public Set<Desenvolvedor> getDevs() {
         return devs;
     }
-
     public void setDevs(Set<Desenvolvedor> devs) {
         this.devs = devs;
     }
 
+
     public Set<Conteudo> getConteudosBootcamp() {
         return conteudosBootcamp;
     }
-
     public void setConteudosBootcamp(Set<Conteudo> conteudosBootcamp) {
         this.conteudosBootcamp = conteudosBootcamp;
     }
+
+
+    public Set<Curso> getCursos() {return cursos;}
+    public void setCursos(Set<Curso> cursos) {this.cursos = cursos;}
+
+    public Set<Mentoria> getMentorias() {return mentorias;}
+    public void setMentorias(Set<Mentoria> mentorias) {this.mentorias = mentorias;}
+
 
     @Override
     public boolean equals(Object o) {
